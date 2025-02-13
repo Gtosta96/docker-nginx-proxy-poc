@@ -1,0 +1,41 @@
+server {
+    listen 80;
+
+ location = /index.html {
+        alias /usr/share/nginx/html/react/index.html;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
+        add_header Expires 0;
+        add_header X-Custom-Header 'Root';
+    }
+
+    location = /storybook/index.html {
+        alias /usr/share/nginx/html/react/storybook-static/index.html;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
+        add_header Expires 0;
+        add_header X-Custom-Header 'Storybook';
+    }
+
+    location / {
+        root /usr/share/nginx/html/react;
+        index index.html;
+
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /storybook {
+        alias /usr/share/nginx/html/react/storybook-static;
+        index index.html;
+
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(?:css|js|jpg|jpeg|gif|png|ico|svg|woff|woff2|ttf|eot)$ {
+        root /usr/share/nginx/html/react;
+        
+        expires 6M;
+        add_header Cache-Control "public, max-age=15552000, immutable";
+        add_header X-Custom-Header 'Static';
+    }
+}
