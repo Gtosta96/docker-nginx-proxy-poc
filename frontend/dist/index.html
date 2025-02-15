@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Angular</h1>
-</body>
-
-</html>
+<!--START--> <!DOCTYPE svg PUBLIC “-//W3C//DTD SVG 1.1//EN” “http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd”> <html class="no-js" lang="en"> <head> <meta charset="utf-8"> <!--FOR IOS--> <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; img-src 'self' data: *; script-src * 'unsafe-inline' 'unsafe-eval'"> <!-- Turning off Number Detection in iOS --> <meta name="format-detection" content="telephone=no"> <meta name="theme-color" content="#000000"> <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> <meta name="HandheldFriendly" content="true"> <!--FOR WEBSITE--> <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src	'self' 'unsafe-inline' *; img-src 'self' data: *">--> <title ng-bind="companyName"></title> <link id="favicon" rel="icon" type="image/png"> <link rel="stylesheet" href="styles/vendor.css"> <link rel="stylesheet" href="{{$root.stylesheet}}"> <link rel="manifest" href="manifest.json"> </head> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <!-- <script>
+! function(A, n, g, u, l, a, r) {
+A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
+  (A[l].q = A[l].q || []).push(arguments)
+}, A[l].l = +new Date, a = n.createElement(g),
+r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+}(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-XXXXX-X');
+ga('send', 'pageview');
+</script> --> <script src="scripts/vendor.js"></script> <script src="scripts/scripts.js"></script> <script src="https://js.stripe.com/v3/"></script> <body id="load"> <div layout="column" ng-controller="MainCtrl as mainCtrl" layout-fill class="animated fadeIn" id="fadeIn"> <div ng-include src="'views/index/toolbar.html'"></div> <md-progress-linear ng-if="loadingSpinner" md-mode="indeterminate"></md-progress-linear> <div ng-include src="'views/index/sidebar.html'" layout="row" style="color: rgb(85, 85, 85);"></div> <div ng-include src="'views/index/notification.html'" layout="row" style="color: rgb(85, 85, 85);"></div> <div layout-fill flex id="main-ws"> <snap-content style="overflow: hidden" ui-view="" layout-fill class="back-gradient" ng-class="{'snap-padding': mainCtrl.showNav}"></snap-content> <div comments-snap></div> </div> </div>   <!--END--> 
